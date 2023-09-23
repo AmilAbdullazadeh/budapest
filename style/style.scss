@@ -1,102 +1,54 @@
-@import "variables";
-@import "mixins";
-@import "reset";
-
-* {
-  font-family: 'Oxygen', sans-serif;
-  font-style: normal;
-  line-height: normal;
+body {
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
 
-#main {
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
 
-  .container {
-    width: 100%;
-    height: 100vh;
+.slide {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: absolute;
+  transition: all 0.5s;
+}
 
-    .row {
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-      .left-side {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        row-gap: 250px;
+.btn {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  z-index: 10px;
+  cursor: pointer;
+  background-color: #fff;
+  font-size: 18px;
+}
 
-        @include mobile() {
-          row-gap: 120px;
-        }
+.btn:active {
+  transform: scale(1.1);
+}
 
-        .content {
-          max-width: 482px;
+.btn-prev {
+  top: 45%;
+  left: 2%;
+}
 
-          &__title {
-            color: $main_color;
-            font-size: 64px;
-            font-weight: 400;
-            margin-bottom: 15px;
-
-            @include mobile() {
-              font-size: 45px;
-            }
-          }
-
-          &__info {
-            color: $main_color;
-            text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-            font-size: 36px;
-            font-weight: 400;
-            margin-bottom: 35px;
-
-            @include mobile() {
-              font-size: 25px;
-            }
-          }
-
-          .button {
-            border-radius: 8px;
-            background: $btn_bg_color;
-            color: $btn_color;
-            padding: 15px 20px;
-            border: none;
-            box-shadow: 6px 6px 10px 0px rgba(0, 0, 0, 0.25);
-            font-size: 30px;
-            font-weight: 400;
-
-            @include mobile() {
-              width: 100%;
-              font-size: 20px;
-            }
-          }
-        }
-
-
-
-        .social {
-
-          &__list {
-            width: 200px;
-            display: flex;
-            //column-gap: 40px;
-            justify-content: space-between;
-
-            &_item {
-              width: 35px;
-              height: 46px;
-            }
-          }
-        }
-      }
-
-      .right-side {
-
-        @include mobile() {
-          margin: 50px 0;
-        }
-
-
-        img {
-        }
-      }
-    }
-  }
+.btn-next {
+  top: 45%;
+  right: 2%;
 }
